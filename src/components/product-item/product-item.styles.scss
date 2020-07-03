@@ -34,10 +34,11 @@
                 justify-content: space-around;
                 align-items: center;
 
-                svg {                
+                .icon {                
                     background-color: #65ce34;
                     padding: 6px;
                     border-radius: 50%;
+                    cursor: pointer;
                 }
         
                 span.counter {

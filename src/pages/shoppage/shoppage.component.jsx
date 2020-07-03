@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ProductItem from '../../components/product-item/product-item.component.jsx';
+import BottomBar from '../../components/bottom-bar/bottom-bar.component.jsx';
+import Modal from '../../components/modal/modal.component.jsx';
 
 import './shoppage.styles.scss';
 
@@ -8,122 +10,56 @@ class ShopPage extends Component {
         super(props);
 
         this.state = {
-            products : [
-                {
-                    id: 1,
-                    brandName: 'Amul',
-                    productName: 'Amul pure ghee',
-                    quantity: '1 litre',
-                    price: 439,
-                    MRF: 460,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_131935.jpg?ts=1590040144',
-                    offerText: ''
-                },
-                {
-                    id: 2,
-                    brandName: 'Patanjali',
-                    productName: 'Patanjali pure cow ghee',
-                    quantity: '1 litre',
-                    price: 405,
-                    MRF: 430,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_11196.jpg?ts=1587129710',
-                    offerText: ''
-                },
-                {
-                    id: 3,
-                    brandName: 'Patanjali',
-                    productName: 'Patanjali mustard oil',
-                    quantity: '1 litre',
-                    price: 125,
-                    MRF: 140,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_11299.jpg?ts=1591007188',
-                    offerText: ''
-                },
-                {
-                    id: 4,
-                    brandName: 'Fortune',
-                    productName: 'Fortune refined oil',
-                    quantity: '1 litre',
-                    price: 110,
-                    MRF: 120,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_43.jpg?ts=1582006624',
-                    offerText: ''
-                },
-                {
-                    id: 5,
-                    brandName: 'Ashirvad',
-                    productName: 'Ashirvad Atta',
-                    quantity: '10 kg',
-                    price: 430,
-                    MRF: 465,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_333324.jpg?ts=1588911583',
-                    offerText: ''
-                },
-                {
-                    id: 6,
-                    brandName: 'Amul',
-                    productName: 'Amul butter milk',
-                    quantity: '180 ml',
-                    price: 12,
-                    MRF: 15,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_19507.jpg?ts=1592221873',
-                    offerText: ''
-                },
-                {
-                    id: 7,
-                    brandName: 'Amul',
-                    productName: 'Amul pure ghee',
-                    quantity: '1 litre',
-                    price: 439,
-                    MRF: 460,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_131935.jpg?ts=1590040144',
-                    offerText: ''
-                },
-                {
-                    id: 8,
-                    brandName: 'Patanjali',
-                    productName: 'Patanjali pure cow ghee',
-                    quantity: '1 litre',
-                    price: 405,
-                    MRF: 430,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_11196.jpg?ts=1587129710',
-                    offerText: ''
-                },
-                {
-                    id: 9,
-                    brandName: 'Patanjali',
-                    productName: 'Patanjali mustard oil',
-                    quantity: '1 litre',
-                    price: 125,
-                    MRF: 140,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_11299.jpg?ts=1591007188',
-                    offerText: ''
-                },
-                {
-                    id: 10,
-                    brandName: 'Fortune',
-                    productName: 'Fortune refined oil',
-                    quantity: '1 litre',
-                    price: 110,
-                    MRF: 120,
-                    imageUrl: '//cdn.grofers.com/app/images/products/normal/pro_43.jpg?ts=1582006624',
-                    offerText: ''
-                }   
-            ]
+            cartQuantity: 0,
+            cartTotal: 0,
+            showModal: false,
+            products : []
         }
     }
 
     
 
+    handlePlusCounter = (e) => {
+        
+        console.log("this.state(prevState)");
+    } 
+
+    handleMinusCounter = () => {
+        console.log("minus counter function hit");
+    }
+
+    handleCheckout = () => {        
+        this.setState({ showModal: true});        
+    }
+
+    handleAddCart = () => {
+        console.log("cart button clicked");
+    }
+
+    handleModalClose = () => {
+        this.setState({ showModal: false});
+    }
+
+    componentDidMount() {
+        fetch('../../data/products.json')
+            .then(response => response.json())
+            .then(products => console.log(products))
+            .catch(error => console.log("error is coming",error));
+    }   
+
     render() {
         return (
-            <div className="shop-page">                
-                {
-                    this.state.products.map(({id,  ...product }) => (
-                        <ProductItem key={id} handlepluscounter={this.handlePlusCounter} handleminuscounter={this.handleMinusCounter} {...product} />
-                    ))
-                }               
-            </div>
+            <div>
+                <div className="shop-page">                
+                    {
+                        this.state.products.map(({id,  ...product }) => (
+                            <ProductItem key={id} handleAddCart={this.handleAddCart} handlePlusCounter={this.handlePlusCounter} handleMinusCounter={this.handleMinusCounter} {...product} />
+                        ))
+                    }                 
+                </div>
+                <BottomBar quantity={this.state.cartQuantity} total={this.state.cartTotal} handleCheckout={this.handleCheckout}/>
+                <Modal showModal={this.state.showModal} handleModalClose={this.handleModalClose} totalPrice={this.state.cartTotal}/>
+            </div>            
         );
     }
 }

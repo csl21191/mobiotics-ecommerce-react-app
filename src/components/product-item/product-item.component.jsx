@@ -4,7 +4,7 @@ import * as Icon from 'react-feather';
 
 import './product-item.styles.scss';
 
-const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, offerText, handlePlusCounter, handleMinusCounter }) => {
+const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, offerText, handleAddCart, handlePlusCounter, handleMinusCounter }) => {
     return(
         <div className="product-item">
             <div className="product-image">
@@ -19,11 +19,11 @@ const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, o
                 <span className="mrp"><strong>MRP - </strong>Rs.{MRF}</span>
                 <span className="price">Rs.{price}</span>
                 <div className="product-action">
-                    <CustomButton>Add Cart</CustomButton> 
+                    <CustomButton handleClick={handleAddCart}>Add Cart</CustomButton> 
                     <div className="quantity-counter">
-                        <Icon.Plus handlepluscounter={handlePlusCounter}/>
+                        <Icon.Plus onClick={handlePlusCounter} className="icon"/>
                         <span className="counter">0</span>
-                        <Icon.Minus handleminuscounter={handleMinusCounter}/>
+                        <Icon.Minus onClick={handleMinusCounter} className="icon"/>
                     </div>                                   
                 </div>
             </div>
