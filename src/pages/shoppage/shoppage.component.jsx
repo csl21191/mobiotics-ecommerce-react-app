@@ -3,7 +3,10 @@ import ProductItem from '../../components/product-item/product-item.component.js
 import BottomBar from '../../components/bottom-bar/bottom-bar.component.jsx';
 import Modal from '../../components/modal/modal.component.jsx';
 
+
 import './shoppage.styles.scss';
+
+
 
 class ShopPage extends Component {
     constructor(props) {
@@ -15,9 +18,7 @@ class ShopPage extends Component {
             showModal: false,
             products : []
         }
-    }
-
-    
+    }    
 
     handlePlusCounter = (e) => {
         
@@ -41,10 +42,10 @@ class ShopPage extends Component {
     }
 
     componentDidMount() {
-        fetch('../../data/products.json')
+        fetch(`../../../products.json`)
             .then(response => response.json())
-            .then(products => console.log(products))
-            .catch(error => console.log("error is coming",error));
+            .then(products => this.setState({products: products}))
+            .catch(error => console.error(error));
     }   
 
     render() {

@@ -1,5 +1,5 @@
 [
-    {
+   {
        "id":1,
        "brandName":"Amul",
        "productName":"Amul pure ghee",
@@ -8,8 +8,8 @@
        "MRF":460,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_131935.jpg?ts=1590040144",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":2,
        "brandName":"Patanjali",
        "productName":"Patanjali pure cow ghee",
@@ -18,8 +18,8 @@
        "MRF":430,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_11196.jpg?ts=1587129710",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":3,
        "brandName":"Patanjali",
        "productName":"Patanjali mustard oil",
@@ -28,8 +28,8 @@
        "MRF":140,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_11299.jpg?ts=1591007188",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":4,
        "brandName":"Fortune",
        "productName":"Fortune refined oil",
@@ -38,8 +38,8 @@
        "MRF":120,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_43.jpg?ts=1582006624",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":5,
        "brandName":"Ashirvad",
        "productName":"Ashirvad Atta",
@@ -48,8 +48,8 @@
        "MRF":465,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_333324.jpg?ts=1588911583",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":6,
        "brandName":"Amul",
        "productName":"Amul butter milk",
@@ -58,8 +58,8 @@
        "MRF":15,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_19507.jpg?ts=1592221873",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":7,
        "brandName":"Amul",
        "productName":"Amul pure ghee",
@@ -68,8 +68,8 @@
        "MRF":460,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_131935.jpg?ts=1590040144",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":8,
        "brandName":"Patanjali",
        "productName":"Patanjali pure cow ghee",
@@ -78,8 +78,8 @@
        "MRF":430,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_11196.jpg?ts=1587129710",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":9,
        "brandName":"Patanjali",
        "productName":"Patanjali mustard oil",
@@ -88,8 +88,8 @@
        "MRF":140,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_11299.jpg?ts=1591007188",
        "offerText":""
-    },
-    {
+   },
+   {
        "id":10,
        "brandName":"Fortune",
        "productName":"Fortune refined oil",
@@ -98,5 +98,5 @@
        "MRF":120,
        "imageUrl":"//cdn.grofers.com/app/images/products/normal/pro_43.jpg?ts=1582006624",
        "offerText":""
-    }
+   }
  ]
