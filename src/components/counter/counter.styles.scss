@@ -1,0 +1,28 @@
+.input-number {
+    width: 40px;
+    padding: 0;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+    border: none;
+    height: 34px;
+    user-select: none;
+}
+
+.quantity-counter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .icon {                
+        background-color: #65ce34;
+        padding: 6px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    span.counter {
+        font-size: 20px;
+        padding: 10px;
+    }
+}

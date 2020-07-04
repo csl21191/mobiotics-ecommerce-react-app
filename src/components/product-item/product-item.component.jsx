@@ -1,18 +1,18 @@
 import React from 'react';
 import CustomButton from '../custom-button/custom-button.component.jsx';
-import * as Icon from 'react-feather';
+import Counter from '../counter/counter.component.jsx';
 
 import './product-item.styles.scss';
 
-const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, offerText, handleAddCart, handlePlusCounter, handleMinusCounter }) => {
+const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, offerText, productSelectedCounter, handleAddCart, handlePlusCounter, handleMinusCounter }) => {
     return(
         <div className="product-item">
             <div className="product-image">
                 <img src={imageUrl} alt={productName}/>
+                <p>{offerText}</p>
             </div>
             
             <div className="product-details">
-                <p>{offerText}</p>
                 <h4 className="brand-name">{brandName}</h4>
                 <p className="product-title">{productName}</p>
                 <span className="quantity">{quantity}</span>
@@ -20,10 +20,12 @@ const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, o
                 <span className="price">Rs.{price}</span>
                 <div className="product-action">
                     <CustomButton handleClick={handleAddCart}>Add Cart</CustomButton> 
-                    <div className="quantity-counter">
-                        <Icon.Plus onClick={handlePlusCounter} className="icon"/>
-                        <span className="counter">0</span>
-                        <Icon.Minus onClick={handleMinusCounter} className="icon"/>
+                    <div>
+                        <Counter 
+                            handlePlusCounter={handlePlusCounter} 
+                            handleMinusCounter={handleMinusCounter}
+                            productSelectedCounter={productSelectedCounter}
+                        />
                     </div>                                   
                 </div>
             </div>

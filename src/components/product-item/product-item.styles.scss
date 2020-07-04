@@ -9,6 +9,10 @@
         img {
             width: 100%;
         }
+
+        p {
+            text-align: center;
+        }
     }
 
     .product-details {
@@ -26,28 +30,7 @@
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            
-
-            .quantity-counter {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-
-                .icon {                
-                    background-color: #65ce34;
-                    padding: 6px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                }
-        
-                span.counter {
-                    font-size: 20px;
-                    padding: 10px;
-                }
-            }
-    
-            
+            align-items: center;            
         }
     }        
 }
