@@ -19,9 +19,36 @@ class Products extends Component {
         }
     }    
 
-    handlePlusCounter = () => { 
-        // this.setState({cartItems: this})              
-        this.setState({cartQuantity: this.state.cartQuantity + 1}, () => console.log(this.state.cartQuantity))        
+    // handlePlusCounter = (e) => {                    
+    //     this.setState({
+    //         cartQuantity: this.state.cartQuantity + 1, 
+    //         cartItems: ( ( e.target.id !== '' ) ? 
+    //                         ( ( this.state.cartItems.some( cartItem => ( cartItem.id == e.target.id ) ) ) ? 
+    //                             this.state.cartItems.filter( cartItem => ( cartItem.id == e.target.id ) ) : 
+    //                             [ ...this.state.cartItems, {
+    //                                 id: e.target.id, 
+    //                                 productSelectedQuantity: +1, 
+    //                                 price: this.state.products
+    //                                             .filter( product => product.id == e.target.id )
+    //                                             .map( ( selectedProduct ) => selectedProduct.price )
+    //                             } ]
+    //                         ) : this.state.cartItems )
+    //     }, () => console.log( this.state.cartItems ) )        
+    // } 
+
+    handlePlusCounter = (e) => {
+        console.log(e.target.id);                           
+        this.setState({
+            cartQuantity: this.state.cartQuantity + 1, 
+            cartItems: ( ( e.target.id !== '' ) ? [ ...this.state.cartItems, {
+                                        id: e.target.id, 
+                                        productSelectedQuantity: 1, 
+                                        price: this.state.products
+                                                    .filter( product => product.id === parseInt( e.target.id ) )
+                                                    .map( ( selectedProduct ) => selectedProduct.price )
+                                } ] :                           
+                        this.state.cartItems )
+        }, () => console.log( this.state.cartItems ) )        
     } 
 
     handleMinusCounter = () => {
@@ -54,13 +81,14 @@ class Products extends Component {
             <div>
                 <div className="products">                
                     {
-                        this.state.products.map(({id,  ...product }) => (
+                        this.state.products.map(({id,  ...product }) => (                           
                             <ProductItem 
                                 key={id} 
                                 handleAddCart={this.handleAddCart} 
                                 handlePlusCounter={this.handlePlusCounter} 
                                 handleMinusCounter={this.handleMinusCounter}
                                 productSelectedCounter={this.state.productSelectedCounter}
+                                productId={id}
                                 {...product} 
                             />
                         ))

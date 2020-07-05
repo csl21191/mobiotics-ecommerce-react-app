@@ -4,7 +4,7 @@ import Counter from '../counter/counter.component.jsx';
 
 import './product-item.styles.scss';
 
-const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, offerText, productSelectedCounter, handleAddCart, handlePlusCounter, handleMinusCounter }) => {
+const ProductItem = ({ productId, brandName, productName, quantity, MRF, price, imageUrl, offerText, productSelectedCounter, handleAddCart, handlePlusCounter, handleMinusCounter }) => {
     return(
         <div className="product-item">
             <div className="product-image">
@@ -19,14 +19,14 @@ const ProductItem = ({ brandName, productName, quantity, MRF, price, imageUrl, o
                 <span className="mrp"><strong>MRP - </strong>Rs.{MRF}</span>
                 <span className="price">Rs.{price}</span>
                 <div className="product-action">
-                    <CustomButton handleClick={handleAddCart}>Add Cart</CustomButton> 
-                    <div>
-                        <Counter 
-                            handlePlusCounter={handlePlusCounter} 
-                            handleMinusCounter={handleMinusCounter}
-                            productSelectedCounter={productSelectedCounter}
-                        />
-                    </div>                                   
+                    <CustomButton handleClick={handleAddCart}>Add Cart</CustomButton>                   
+                    <Counter 
+                        id={productId}
+                        handlePlusCounter={handlePlusCounter} 
+                        handleMinusCounter={handleMinusCounter}
+                        productSelectedCounter={productSelectedCounter}
+                    />
+                                                       
                 </div>
             </div>
             
