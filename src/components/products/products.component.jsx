@@ -17,29 +17,10 @@ class Products extends Component {
             products : [],
             cartItems: []
         }
-    }    
+    }      
 
-    // handlePlusCounter = (e) => {                    
-    //     this.setState({
-    //         cartQuantity: this.state.cartQuantity + 1, 
-    //         cartItems: ( ( e.target.id !== '' ) ? 
-    //                         ( ( this.state.cartItems.some( cartItem => ( cartItem.id == e.target.id ) ) ) ? 
-    //                             this.state.cartItems.filter( cartItem => ( cartItem.id == e.target.id ) ) : 
-    //                             [ ...this.state.cartItems, {
-    //                                 id: e.target.id, 
-    //                                 productSelectedQuantity: +1, 
-    //                                 price: this.state.products
-    //                                             .filter( product => product.id == e.target.id )
-    //                                             .map( ( selectedProduct ) => selectedProduct.price )
-    //                             } ]
-    //                         ) : this.state.cartItems )
-    //     }, () => console.log( this.state.cartItems ) )        
-    // } 
-
-    handlePlusCounter = (e) => {
-        console.log(e.target.id);                           
-        this.setState({
-            cartQuantity: this.state.cartQuantity + 1, 
+    handlePlusCounter = (e) => {       
+        this.setState({ 
             cartItems: ( ( e.target.id !== '' ) ? [ ...this.state.cartItems, {
                                         id: e.target.id, 
                                         productSelectedQuantity: 1, 
@@ -48,7 +29,20 @@ class Products extends Component {
                                                     .map( ( selectedProduct ) => selectedProduct.price )
                                 } ] :                           
                         this.state.cartItems )
-        }, () => console.log( this.state.cartItems ) )        
+        }, () => {
+            if(this.state.cartItems) {
+                this.setState({cartQuantity: this.state.cartItems.length})
+                console.log(this.state.cartItems);
+                let cartPrice1 = 0;
+                
+                this.state.cartItems.forEach(element => {
+                    //console.log(element.price[0]);
+                    cartPrice1 = cartPrice1+element.price[0]
+                    
+                    this.setState({cartTotal: cartPrice1})                
+                });
+            }
+        } )        
     } 
 
     handleMinusCounter = () => {
